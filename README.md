@@ -97,10 +97,12 @@ ladder player. Each #1 is backed by dated third-party captures of the ladder and
     <td align="center">Gen 6 · beats a 1740-rated player</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img src="media/battle_gen7.gif" width="50%" alt="A win on the gen-7 random-battle ladder over a 1692-rated player (opponent anonymized)"></td>
+    <td width="50%"><img src="media/battle_gen7.gif" width="100%" alt="A win on the gen-7 random-battle ladder over a 1692-rated player (opponent anonymized)"></td>
+    <td width="50%"><img src="media/battle_gen9.gif" width="100%" alt="A win on the gen-9 random-battle ladder over a 2385-rated player (opponent anonymized)"></td>
   </tr>
   <tr>
-    <td colspan="2" align="center">Gen 7 · beats a 1692-rated player</td>
+    <td align="center">Gen 7 · beats a 1692-rated player</td>
+    <td align="center">Gen 9 · beats a 2385-rated player</td>
   </tr>
 </table>
 
@@ -164,7 +166,7 @@ bots.
 
 [Foul Play](https://pmariglia.github.io/posts/foul-play/) is an open-source search bot: it won the generation-9 OU track
 of the NeurIPS 2025 [PokéAgent Challenge](https://arxiv.org/abs/2603.15563), and its author reported a peak rank of 3
-on the gen-4 random-battle ladder. Each #1 model's win rate against it, without and with the model's play-time search,
+on the gen-4 random-battle ladder. Each model's win rate against it, without and with the model's play-time search,
 played side by side:
 
 | Gen | Without search | With search | Battles per column |
@@ -174,6 +176,7 @@ played side by side:
 | 4 | 61.6% (59.4–63.7) | 67.5% (65.4–69.5) | 2,000 |
 | 6 | 66.4% (60.4–71.9) | 68.4% (62.4–73.7) | 256 |
 | 7 | 66.8% (60.8–72.3) | 71.9% (66.1–77.0) | 256 |
+| 9 | 64.5% (58.4–70.1) | 66.8% (60.8–72.3) | 256 |
 
 <sub>Win rate with its 95% Wilson interval. Foul Play's search is fixed per generation, so compare within a row only.
 For gens 2, 4 and 6, these games used a smaller search than the ladder did, so their with-search numbers likely
@@ -190,6 +193,7 @@ Every network trained from random weights. Later generations rented one GPU at a
 | 4 | 700M | rented GPU | about 6 days | about $230 |
 | 6 | 600M | rented GPU | about 4 days | about $170 |
 | 7 | 600M | rented GPU | about 4 days | about $220 |
+| 9 | 800M | rented GPU | about 8 days | about $280 |
 
 ## Why it's hard
 
