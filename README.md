@@ -5,18 +5,18 @@
 <h1 align="center">MissingNo.Zero</h1>
 
 <p align="center">
-  <b>#1 on Pokémon Showdown's global random-battle ladders in four generations.</b>
+  <b>#1 on Pokémon Showdown's global random-battle ladders in five generations.</b>
 </p>
 
 <p align="center">
   <!-- TODO: the arXiv ID in every arxiv.org/abs/TODO and arxiv.org/pdf/TODO link and in the BibTeX, once the paper is announced -->
   <a href="https://arxiv.org/abs/TODO"><img src="https://img.shields.io/badge/arXiv-TODO-b31b1b" alt="arXiv: TODO"></a>
-  <img src="https://img.shields.io/badge/ladder%20%231-gens%201%20%C2%B7%202%20%C2%B7%204%20%C2%B7%206-ffcb05" alt="Ladder #1 in gens 1, 2, 4 and 6">
+  <img src="https://img.shields.io/badge/ladder%20%231-gens%201%20%C2%B7%202%20%C2%B7%204%20%C2%B7%206%20%C2%B7%207-ffcb05" alt="Ladder #1 in gens 1, 2, 4, 6 and 7">
 </p>
 
 <p align="center">
   In September and October 2026, MissingNo.Zero, trained <i>tabula rasa</i> by self-play reinforcement learning, reached
-  #1 on Pokémon Showdown's public random-battle ladders in four generations.
+  #1 on Pokémon Showdown's public random-battle ladders in five generations.
 </p>
 
 <p align="center">
@@ -57,10 +57,24 @@
     <td align="center"><b>#1</b> on 2026-10-08 · peak Elo 1738 · <a href="https://web.archive.org/web/20261008184118/https://pokemonshowdown.com/ladder/gen4randombattle">archived at #1</a></td>
     <td align="center"><b>#1</b> on 2026-10-16 · peak Elo 1942 · <a href="https://web.archive.org/web/20261016121841/https://pokemonshowdown.com/ladder/gen6randombattle?snap=1792153118">archived at #1</a></td>
   </tr>
+  <tr>
+    <th width="50%">Gen 7 · Sun / Moon / Ultra Sun / Ultra Moon</th>
+    <th width="50%">Gen 9 · Scarlet / Violet</th>
+  </tr>
+  <tr>
+    <td width="50%"><img src="media/board_gen7.png" width="100%"
+         alt="The top 10 of Showdown's gen7randombattle top-500 board at its peak, 3:43 pm EDT on 2026-10-24, as the Wayback Machine captured it: MissingNo.ZeroBot at #1 with Elo 1900, GXE 89.3%, Glicko-1 1900 ± 25; other players' names blanked"></td>
+    <td width="50%"><img src="media/board_gen9.png" width="100%"
+         alt="The top 10 of Showdown's gen9randombattle top-500 board at its peak, 3:26 am EDT on 2026-10-25, as the Wayback Machine captured it: MissingNo.ZeroBot at #5 with Elo 2453, GXE 93.4%, Glicko-1 1999 ± 25; other players' names blanked"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>#1</b> on 2026-10-24 · peak Elo 1900 · <a href="https://web.archive.org/web/20261024193431/https://pokemonshowdown.com/ladder/gen7randombattle?snap=1792870430">archived at #1</a> · reached after Showdown made ladder games against bots opt-in</td>
+    <td align="center"><b>Top 10</b> · best <b>#5</b> on 2026-10-25 · peak Elo 2453 · <a href="https://web.archive.org/web/20261025072637/https://pokemonshowdown.com/ladder/gen9randombattle?snap=1792913158">archived at #5</a> · reached after Showdown made ladder games against bots opt-in</td>
+  </tr>
 </table>
 
-<p align="center"><sub>Each board's top 10 with our account at #1, at the highest Elo we have an image of (gen 1's shows
-1717, below its 1726 peak). Other players' names are blanked. GXE is Showdown's estimate of the chance to beat a random
+<p align="center"><sub>Each board's top 10 with our account at #1 (gen 9's at #5, its best; it did not reach #1), at the
+highest Elo we have an image of (gen 1's shows 1717, below its 1726 peak). Other players' names are blanked. GXE is Showdown's estimate of the chance to beat a random
 ladder player. Each #1 is backed by dated third-party captures of the ladder and by timestamps made at the time.</sub></p>
 
 ## Real games on the public ladder
@@ -82,24 +96,32 @@ ladder player. Each #1 is backed by dated third-party captures of the ladder and
     <td align="center">Gen 4 · beats a 1521-rated player</td>
     <td align="center">Gen 6 · beats a 1740-rated player</td>
   </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="media/battle_gen7.gif" width="50%" alt="A win on the gen-7 random-battle ladder over a 1692-rated player (opponent anonymized)"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Gen 7 · beats a 1692-rated player</td>
+  </tr>
 </table>
 
-<p align="center"><sub>Opponents anonymized. Every ladder account has "bot" in its name, the bot never poses as human,
-and opponents who ask not to play a bot are opted out. Showdown opened its bot registry on 2026-10-13, and its staff
-marked our accounts as bots, so the gen 2 and gen 6 runs were played as registered bots. No moderator contacted us
-during any run. All four runs ended before 2026-10-20, when Showdown's code added an opt-in for ladder matchmaking
-against bots (off by default).</sub></p>
+<p align="center"><sub>Opponents anonymized. Every ladder account has "bot" in its name, and the bot never poses as
+human. Showdown opened its bot registry on 2026-10-13, and its staff marked our accounts as bots, so the gen 2, 6, 7
+and 9 runs were played as registered bots. No moderator contacted us during any run. The gen 1, 2, 4 and 6 runs
+ended before 2026-10-20, when Showdown's code added an opt-in for ladder matchmaking against bots (off by default);
+until then the ladder paired a bot like any other account, by rating, with whoever was searching for a game, and being
+registered did not change that. Gen 7's and gen 9's runs came after it, so Showdown could match them only with players who had
+turned that opt-in on and with other bots; we do not know what share of the board's active players had.</sub></p>
 
 ## The paper
 
 <p align="center">
   <a href="https://arxiv.org/abs/TODO"><img src="media/paper_page1.png" width="250"
-     alt="The first page of the paper, MissingNo.Zero: pure self-play reinforcement learning reaches #1 on Pokémon Showdown in four random-battle generations"></a>
+     alt="The first page of the paper, MissingNo.Zero: pure self-play reinforcement learning reaches #1 on Pokémon Showdown in five random-battle generations"></a>
 </p>
 
 <p align="center">
   <b><a href="https://arxiv.org/abs/TODO">MissingNo.Zero: pure self-play reinforcement learning reaches #1 on Pokémon
-  Showdown in four random-battle generations</a></b><br>
+  Showdown in five random-battle generations</a></b><br>
   Nick Greenquist · arXiv, 2026 · <a href="https://arxiv.org/abs/TODO">abstract</a> · <a href="https://arxiv.org/pdf/TODO">PDF</a>
 </p>
 
@@ -109,7 +131,7 @@ against bots (off by default).</sub></p>
 ```bibtex
 @misc{greenquist2026missingnozero,
   title         = {{MissingNo.Zero}: pure self-play reinforcement learning reaches \#1 on {Pok\'{e}mon Showdown}
-                   in four random-battle generations},
+                   in five random-battle generations},
   author        = {Greenquist, Nick},
   year          = {2026},
   eprint        = {TODO},
@@ -151,6 +173,7 @@ played side by side:
 | 2 | 69.9% (64.0–75.2) | 80.9% (75.6–85.2) | 256 |
 | 4 | 61.6% (59.4–63.7) | 67.5% (65.4–69.5) | 2,000 |
 | 6 | 66.4% (60.4–71.9) | 68.4% (62.4–73.7) | 256 |
+| 7 | 66.8% (60.8–72.3) | 71.9% (66.1–77.0) | 256 |
 
 <sub>Win rate with its 95% Wilson interval. Foul Play's search is fixed per generation, so compare within a row only.
 For gens 2, 4 and 6, these games used a smaller search than the ladder did, so their with-search numbers likely
@@ -166,6 +189,7 @@ Every network trained from random weights. Later generations rented one GPU at a
 | 2 | 600M | rented GPU | about 3 days | about $160 |
 | 4 | 700M | rented GPU | about 6 days | about $230 |
 | 6 | 600M | rented GPU | about 4 days | about $170 |
+| 7 | 600M | rented GPU | about 4 days | about $220 |
 
 ## Why it's hard
 
@@ -196,7 +220,7 @@ Random battles combine several things that make games hard for learning agents:
   - The [PokéAgent Challenge](https://arxiv.org/abs/2603.15563), a NeurIPS 2025 competition (Karten et al., 2026),
     was played in generation 1 OU and generation 9 OU, where players build their own teams, on a separate server for
     AI agents, and reports no public-ladder rank.
-- **Earlier #1s.** To our knowledge, no agent before ours reached #1 on the generation 1, 2, 4 or 6 random-battle
+- **Earlier #1s.** To our knowledge, no agent before ours reached #1 on the generation 1, 2, 4, 6 or 7 random-battle
   ladders, or in more than one generation; every earlier AI #1 we found was in generation 9, including Jaxcalibur's
   in random battles.
 
