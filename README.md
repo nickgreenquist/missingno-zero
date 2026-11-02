@@ -9,8 +9,7 @@
 </p>
 
 <p align="center">
-  <!-- TODO: the arXiv ID in every arxiv.org/abs/TODO and arxiv.org/pdf/TODO link and in the BibTeX, once the paper is announced -->
-  <a href="https://arxiv.org/abs/TODO"><img src="https://img.shields.io/badge/arXiv-TODO-b31b1b" alt="arXiv: TODO"></a>
+  <a href="missingno-zero.pdf"><img src="https://img.shields.io/badge/paper-PDF-b31b1b" alt="Paper (PDF)"></a>
   <img src="https://img.shields.io/badge/ladder%20%231-gens%201%20%C2%B7%202%20%C2%B7%204%20%C2%B7%206%20%C2%B7%207-ffcb05" alt="Ladder #1 in gens 1, 2, 4, 6 and 7">
 </p>
 
@@ -25,7 +24,7 @@
 </p>
 
 <p align="center">
-  📄 <b><a href="https://arxiv.org/abs/TODO">Read the paper</a></b> (arXiv, 2026) · <a href="https://arxiv.org/pdf/TODO">PDF</a>
+  📄 <b><a href="missingno-zero.pdf">Read the paper</a></b> (PDF, 7 pages)
 </p>
 
 <table>
@@ -106,42 +105,7 @@ ladder player. Each #1 is backed by dated third-party captures of the ladder and
   </tr>
 </table>
 
-<p align="center"><sub>Opponents anonymized. Every ladder account has "bot" in its name, and the bot never poses as
-human. Showdown opened its bot registry on 2026-10-13, and its staff marked our accounts as bots, so the gen 2, 6, 7
-and 9 runs were played as registered bots. No moderator contacted us during any run. The gen 1, 2, 4 and 6 runs
-ended before 2026-10-20, when Showdown's code added an opt-in for ladder matchmaking against bots (off by default);
-until then the ladder paired a bot like any other account, by rating, with whoever was searching for a game, and being
-registered did not change that. Gen 7's and gen 9's runs came after it, so Showdown could match them only with players who had
-turned that opt-in on and with other bots; we do not know what share of the board's active players had.</sub></p>
-
-## The paper
-
-<p align="center">
-  <a href="https://arxiv.org/abs/TODO"><img src="media/paper_page1.png" width="250"
-     alt="The first page of the paper, MissingNo.Zero: pure self-play reinforcement learning reaches #1 on Pokémon Showdown in five random-battle generations"></a>
-</p>
-
-<p align="center">
-  <b><a href="https://arxiv.org/abs/TODO">MissingNo.Zero: pure self-play reinforcement learning reaches #1 on Pokémon
-  Showdown in five random-battle generations</a></b><br>
-  Nick Greenquist · arXiv, 2026 · <a href="https://arxiv.org/abs/TODO">abstract</a> · <a href="https://arxiv.org/pdf/TODO">PDF</a>
-</p>
-
-<details>
-<summary>Cite</summary>
-
-```bibtex
-@misc{greenquist2026missingnozero,
-  title         = {{MissingNo.Zero}: pure self-play reinforcement learning reaches \#1 on {Pok\'{e}mon Showdown}
-                   in five random-battle generations},
-  author        = {Greenquist, Nick},
-  year          = {2026},
-  eprint        = {TODO},
-  archivePrefix = {arXiv},
-}
-```
-
-</details>
+<p align="center"><sub>Wins over ladder players rated 1377 to 2385. Opponents anonymized.</sub></p>
 
 ## How it learns
 
@@ -171,14 +135,14 @@ played side by side:
 
 | Gen | Without search | With search | Battles per column |
 |---|---|---|---|
-| 1 | 71.0% (69.3–72.6) | 71.2% (69.6–72.8) | 3,000 |
-| 2 | 69.9% (64.0–75.2) | 80.9% (75.6–85.2) | 256 |
-| 4 | 61.6% (59.4–63.7) | 67.5% (65.4–69.5) | 2,000 |
-| 6 | 66.4% (60.4–71.9) | 68.4% (62.4–73.7) | 256 |
-| 7 | 66.8% (60.8–72.3) | 71.9% (66.1–77.0) | 256 |
-| 9 | 64.5% (58.4–70.1) | 66.8% (60.8–72.3) | 256 |
+| 1 | 71.0% ± 1.6 | 71.2% ± 1.6 | 3,000 |
+| 2 | 69.9% ± 5.6 | 80.9% ± 4.8 | 256 |
+| 4 | 61.6% ± 2.2 | 67.5% ± 2.0 | 2,000 |
+| 6 | 66.4% ± 5.8 | 68.4% ± 5.7 | 256 |
+| 7 | 66.8% ± 5.8 | 71.9% ± 5.5 | 256 |
+| 9 | 64.5% ± 5.8 | 66.8% ± 5.8 | 256 |
 
-<sub>Win rate with its 95% Wilson interval. Foul Play's search is fixed per generation, so compare within a row only.
+<sub>Win rate ± half the width of its 95% Wilson interval. Foul Play's search is fixed per generation, so compare within a row only.
 For gens 2, 4 and 6, these games used a smaller search than the ladder did, so their with-search numbers likely
 understate ladder strength.</sub>
 
@@ -195,9 +159,12 @@ Every network trained from random weights. Later generations rented one GPU at a
 | 7 | 600M | rented GPU | about 4 days | about $220 |
 | 9 | 800M | rented GPU | about 8 days | about $280 |
 
-## Why it's hard
+The table covers only each final network's own run. Everything rented on RunPod for the whole project, dead ends and
+tests included, came to $2,006.
 
-Random battles combine several things that make games hard for learning agents:
+## Why Pokémon is hard
+
+Pokémon battles combine several things that make games hard for learning agents:
 
 - **Hidden information.** The opponent's Pokémon, and their moves, items and abilities, stay unknown until they are
   revealed, so the agent acts on its guesses about them.
@@ -228,11 +195,22 @@ Random battles combine several things that make games hard for learning agents:
   ladders, or in more than one generation; every earlier AI #1 we found was in generation 9, including Jaxcalibur's
   in random battles.
 
+## Playing as a bot
+
+- Every ladder account has "bot" in its name, and the bot never poses as human.
+- Showdown opened its bot registry on 2026-10-13 and its staff marked our accounts as bots, so the gen 2, 6, 7 and 9
+  runs were played as registered bots. No moderator contacted us during any run.
+- The gen 1, 2, 4 and 6 runs ended before 2026-10-20, when Showdown added an opt-in for ladder games against bots (off
+  by default). Until then the ladder paired a bot by rating with whoever was searching for a game, like any other
+  account.
+- Gen 7's and gen 9's runs came after it, so Showdown matched them only with players who had turned the opt-in on and
+  with other bots. We do not know what share of the board's active players had.
+
 ---
 
 ## About
 
-Nick Greenquist · [nickgreenquist.com](https://nickgreenquist.com)
+Nick Greenquist · [nickgreenquist.com](https://nickgreenquist.com) · [GitHub](https://github.com/nickgreenquist)
 
 Built on [Pokémon Showdown](https://github.com/smogon/pokemon-showdown), [poke-env](https://github.com/hsahovic/poke-env),
 [pkmn/engine](https://github.com/pkmn/engine) and [poke-engine](https://github.com/pmariglia/poke-engine); the GIFs are
