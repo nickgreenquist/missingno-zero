@@ -14,18 +14,12 @@
 </p>
 
 <p align="center">
-  In September and October 2026, MissingNo.Zero, trained <i>tabula rasa</i> by self-play reinforcement learning, reached
-  #1 on Pokémon Showdown's public random-battle ladders in five generations.
-</p>
-
-<p align="center">
-  To our knowledge, <b>no AI agent had reached #1 on these generations' random-battle ladders before, and none had
-  reached #1 in more than one generation</b>.
-</p>
-
-<p align="center">
   📄 <b><a href="missingno-zero.pdf">Read the paper</a></b> (PDF, 7 pages)
 </p>
+
+In September and October 2026, MissingNo.Zero, trained *tabula rasa* by self-play reinforcement learning, reached #1 on Pokémon Showdown's public random-battle ladders in five generations.
+
+To our knowledge, **no AI agent had reached #1 on these generations' random-battle ladders before, and none had reached #1 in more than one generation**.
 
 <table>
   <tr>
@@ -67,8 +61,8 @@
          alt="The top 10 of Showdown's gen9randombattle top-500 board at its peak, 3:26 am EDT on 2026-10-25, as the Wayback Machine captured it: MissingNo.ZeroBot at #5 with Elo 2453, GXE 93.4%, Glicko-1 1999 ± 25; other players' names blanked"></td>
   </tr>
   <tr>
-    <td align="center"><b>#1</b> on 2026-10-24 · peak Elo 1900 · <a href="https://web.archive.org/web/20261024193431/https://pokemonshowdown.com/ladder/gen7randombattle?snap=1792870430">archived at #1</a> · reached after Showdown made ladder games against bots opt-in</td>
-    <td align="center"><b>Top 10</b> · best <b>#5</b> on 2026-10-25 · peak Elo 2453 · <a href="https://web.archive.org/web/20261025072637/https://pokemonshowdown.com/ladder/gen9randombattle?snap=1792913158">archived at #5</a> · reached after Showdown made ladder games against bots opt-in</td>
+    <td align="center"><b>#1</b> on 2026-10-24 · peak Elo 1900 · <a href="https://web.archive.org/web/20261024193431/https://pokemonshowdown.com/ladder/gen7randombattle?snap=1792870430">archived at #1</a></td>
+    <td align="center"><b>Top 10</b> · best <b>#5</b> on 2026-10-25 · peak Elo 2453 · <a href="https://web.archive.org/web/20261025072637/https://pokemonshowdown.com/ladder/gen9randombattle?snap=1792913158">archived at #5</a></td>
   </tr>
 </table>
 
@@ -105,33 +99,19 @@ ladder player. Each #1 is backed by dated third-party captures of the ladder and
   </tr>
 </table>
 
-<p align="center"><sub>Wins over ladder players rated 1377 to 2385. Opponents anonymized.</sub></p>
+<p align="center"><sub>Wins over high-Elo players it faced. Opponents anonymized.</sub></p>
 
 ## How it learns
 
-We take AlphaZero's premise ([Silver et al., 2018](https://doi.org/10.1126/science.aar6404)): one general algorithm that learns from self-play alone. Each
-Pokémon generation is a new game for the same algorithm; what we change per generation is the rules, the input
-encoding, and some training and search settings.
+We take AlphaZero's premise ([Silver et al., 2018](https://doi.org/10.1126/science.aar6404)): one general algorithm that learns from self-play alone. Each Pokémon generation is a new game for the same algorithm; per generation we change only the rules, the input encoding, and some training and search settings.
 
-- **Self-play, no human data.** Each agent learns only from games against itself and its past versions: no human
-  replays, no imitation of any player or bot, and no scripted opponents.
-- **PPO.** A small policy-and-value network (about 3M parameters) is trained with proximal policy optimization
-  ([Schulman et al., 2017](https://arxiv.org/abs/1707.06347)), with settings tuned per generation. Our starting recipe
-  came from [Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888), whose gen-4
-  agent also paired PPO with play-time search.
-- **Search only at play time.** Unlike AlphaZero, and as in Wang (2024), training uses no search. On the ladder, a
-  short look-ahead search guided by the network's own policy and value picks each move, running on one laptop.
-
-We describe the approach only at a high level and release no code or weights. Showdown's ladder is a community of
-human players, and a detailed recipe would make it easy to run strong bots there that do not identify themselves as
-bots.
+- **Self-play.** Each agent learns only from games against itself and its past versions.
+- **PPO.** A small policy-and-value network (about 3M parameters), trained with proximal policy optimization ([Schulman et al., 2017](https://arxiv.org/abs/1707.06347)). Our starting recipe came from [Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888).
+- **Search only at play time.** On the ladder, a short look-ahead search guided by the network's own policy and value picks each move.
 
 ### Strength against Foul Play
 
-[Foul Play](https://pmariglia.github.io/posts/foul-play/) is an open-source search bot: it won the generation-9 OU track
-of the NeurIPS 2025 [PokéAgent Challenge](https://arxiv.org/abs/2603.15563), and its author reported a peak rank of 3
-on the gen-4 random-battle ladder. Each model's win rate against it, without and with the model's play-time search,
-played side by side:
+[Foul Play](https://github.com/pmariglia/foul-play) is an open-source search bot that won the generation-9 OU track of the NeurIPS 2025 [PokéAgent Challenge](https://arxiv.org/abs/2603.15563). Each model's win rate against it, without and with its play-time search:
 
 | Gen | Without search | With search | Battles per column |
 |---|---|---|---|
@@ -142,13 +122,11 @@ played side by side:
 | 7 | 66.8% ± 5.8 | 71.9% ± 5.5 | 256 |
 | 9 | 64.5% ± 5.8 | 66.8% ± 5.8 | 256 |
 
-<sub>Win rate ± half the width of its 95% Wilson interval. Foul Play's search is fixed per generation, so compare within a row only.
-For gens 2, 4 and 6, these games used a smaller search than the ladder did, so their with-search numbers likely
-understate ladder strength.</sub>
+<sub>± is half the width of the 95% Wilson interval. Compare within a row only: Foul Play's search budget is fixed per generation. For gens 2, 4 and 6 these games used a smaller search than the ladder did.</sub>
 
 ### Training cost
 
-Every network trained from random weights. Later generations rented one GPU at a time to go faster.
+Every network trained from random weights.
 
 | Gen | Training steps | Hardware | Time to train | Rented compute |
 |---|---|---|---|---|
@@ -159,58 +137,54 @@ Every network trained from random weights. Later generations rented one GPU at a
 | 7 | 600M | rented GPU | about 4 days | about $220 |
 | 9 | 800M | rented GPU | about 8 days | about $280 |
 
-The table covers only each final network's own run. Everything rented on RunPod for the whole project, dead ends and
-tests included, came to $2,006.
+## How it differs from chess and Go
 
-## Why Pokémon is hard
-
-Pokémon battles combine several things that make games hard for learning agents:
-
-- **Hidden information.** The opponent's Pokémon, and their moves, items and abilities, stay unknown until they are
-  revealed, so the agent acts on its guesses about them.
-- **Chance.** Damage rolls, accuracy, critical hits and side effects make each turn's outcome random, so learning what
-  an action is worth takes many games.
-- **Simultaneous moves.** Both players commit each turn without seeing the other's choice, so a predictable player can
-  be exploited, as in rock-paper-scissors.
-- **Size.** Random teams and many turns of branching make the game far too large to enumerate: Wang (2024) puts a
-  conservative lower bound of about 10<sup>88</sup> on the game tree of generation 4's random battles.
+- **Hidden information.** Chess and Go show the whole board. Here the opponent's team, moves, items and abilities stay unknown until revealed.
+- **Chance.** Chess and Go are deterministic. Here damage rolls, accuracy, critical hits and side effects make every turn random.
+- **Simultaneous moves.** Chess and Go alternate turns. Here both players choose at once, so a predictable player gets exploited.
+- **Random teams.** Chess and Go always start from the same position. Here every game starts from a new, randomly dealt matchup.
 
 ## Prior work
 
-- **Self-play.** [AlphaZero](https://doi.org/10.1126/science.aar6404) (Silver et al., 2018) mastered chess, shogi and
-  Go with one self-play algorithm, searching during training as well as play.
-- **Jaxcalibur.** [Jaxcalibur](https://jaxcalibur.github.io/) reached #1 on Showdown's generation-9 random-battle
-  ladder in August 2026 with self-play PPO and play-time search (self-reported); its author released no code or
-  weights.
-  - **Our project started before Jaxcalibur's write-up.** Our gen-1 agents were on the ladder from August 2026, and
-    the last one built before the write-up reached #5 on the gen-1 board.
-  - The write-up showed that self-play PPO without search in training could reach #1 in generation 9. We then
-    dropped search from training, as Wang (2024) had, and adopted several of its published ideas.
-- **Other Pokémon agents.** Earlier bots reported peak ranks of 8 ([Wang, 2024](https://dspace.mit.edu/handle/1721.1/153888))
-  and 3 ([pmariglia, 2025](https://pmariglia.github.io/posts/foul-play/)) on the gen-4 random-battle board.
-  - The [PokéAgent Challenge](https://arxiv.org/abs/2603.15563), a NeurIPS 2025 competition (Karten et al., 2026),
-    was played in generation 1 OU and generation 9 OU, where players build their own teams, on a separate server for
-    AI agents, and reports no public-ladder rank.
-- **Earlier #1s.** To our knowledge, no agent before ours reached #1 on the generation 1, 2, 4, 6 or 7 random-battle
-  ladders, or in more than one generation; every earlier AI #1 we found was in generation 9, including Jaxcalibur's
-  in random battles.
+- **[AlphaZero](https://doi.org/10.1126/science.aar6404)** (Silver et al., 2018) mastered chess, shogi and Go with one self-play algorithm, searching during training as well as play.
+- **[Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888)** and **[Foul Play](https://pmariglia.github.io/posts/foul-play/)** (pmariglia, 2025) reported peak ranks of 8 and 3 on the gen 4 random-battle ladder.
+- **The [PokéAgent Challenge](https://arxiv.org/abs/2603.15563)** (Karten et al., 2026), a NeurIPS 2025 competition, was played in gen 1 OU and gen 9 OU on a separate server for AI agents, with no public-ladder rank.
+- **Earlier #1s.** To our knowledge, every earlier AI #1 was in gen 9, including Jaxcalibur's. None reached #1 in gens 1, 2, 4, 6 or 7, or in more than one generation.
 
-## Playing as a bot
+## FAQ
 
-- Every ladder account has "bot" in its name, and the bot never poses as human.
-- Showdown opened its bot registry on 2026-10-13 and its staff marked our accounts as bots, so the gen 2, 6, 7 and 9
-  runs were played as registered bots. No moderator contacted us during any run.
-- The gen 1, 2, 4 and 6 runs ended before 2026-10-20, when Showdown added an opt-in for ladder games against bots (off
-  by default). Until then the ladder paired a bot by rating with whoever was searching for a game, like any other
-  account.
-- Gen 7's and gen 9's runs came after it, so Showdown matched them only with players who had turned the opt-in on and
-  with other bots. We do not know what share of the board's active players had.
+**Did it use any human data?**<br>
+No. No replays, no imitation of any player or bot, no scripted opponents.
+
+**How long did it take?**<br>
+The project started as an idea on July 25, 2026. Gen 1, the original goal, reached #1 66 days later; all five #1s came by October 24.
+
+**What did it run on?**<br>
+Gen 1 trained on one laptop. Each later generation rented one GPU for a few days to speed things up. On the ladder, the network and all of its search ran on the laptop's CPU.
+
+**What did it cost?**<br>
+About $2,006 of rented GPU time for the whole project, dead ends and tests included. The [Training cost](#training-cost) table covers only each final network's run.
+
+**How was it benchmarked before laddering?**<br>
+Against Foul Play, at a fixed search budget (see [Strength against Foul Play](#strength-against-foul-play)).
+
+**Did it follow Showdown's bot rules?**<br>
+Yes. Every account has "bot" in its name and never posed as human.
+- Gens 1 and 4: #1 before Showdown had a bot policy (its bot registry opened 2026-10-13).
+- Gens 2 and 6: registered bots, before the bot opt-in (2026-10-20); matched like any other account.
+- Gens 7 and 9: after the opt-in; only opted-in players and other bots.
+
+**How does this relate to Jaxcalibur?**<br>
+[Jaxcalibur](https://jaxcalibur.github.io/) reached #1 in gen 9 in August 2026 with self-play PPO. Our gen 1 agents were already on the ladder then, and the last one built before its write-up reached #5. The write-up showed search in training wasn't needed, so we dropped it and adopted several of its ideas.
+
+**Will you release the code or weights?**<br>
+No. A detailed recipe would make it easy to run strong bots on Showdown that ignore its bot policy.
 
 ---
 
 ## About
 
-Nick Greenquist · [nickgreenquist.com](https://nickgreenquist.com) · [GitHub](https://github.com/nickgreenquist)
+Nick Greenquist · [nickgreenquist.com](https://nickgreenquist.com) · [GitHub](https://github.com/nickgreenquist) · [Smogon thread](https://www.smogon.com/forums/threads/missingno-zero-a-pure-self-play-reinforcement-learning-bot-that-reached-1-on-five-random-battle-ladders.3790707/)
 
 Built on [Pokémon Showdown](https://github.com/smogon/pokemon-showdown), [poke-env](https://github.com/hsahovic/poke-env),
 [pkmn/engine](https://github.com/pkmn/engine) and [poke-engine](https://github.com/pmariglia/poke-engine); the GIFs are
