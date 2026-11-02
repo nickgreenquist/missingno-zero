@@ -184,7 +184,7 @@ No. A detailed recipe would make it easy to run strong bots on Showdown that ign
 
 ## About
 
-Nick Greenquist · [nickgreenquist.com](https://nickgreenquist.com) · [GitHub](https://github.com/nickgreenquist) · [Smogon thread](https://www.smogon.com/forums/threads/missingno-zero-a-pure-self-play-reinforcement-learning-bot-that-reached-1-on-five-random-battle-ladders.3790707/)
+Nick Greenquist · [nickgreenquist.com](https://nickgreenquist.com) · [GitHub](https://github.com/nickgreenquist) · [Smogon thread](https://www.smogon.com/forums/threads/missingno-zero-a-pure-self-play-reinforcement-learning-bot-that-reached-1-on-five-random-battle-ladders.3790707/) · [Blog post](https://nickgreenquist.com/blog/projects/2026/11/02/missingno-zero-self-play-pokemon-showdown/)
 
 Built on [Pokémon Showdown](https://github.com/smogon/pokemon-showdown), [poke-env](https://github.com/hsahovic/poke-env),
 [pkmn/engine](https://github.com/pkmn/engine) and [poke-engine](https://github.com/pmariglia/poke-engine); the GIFs are
