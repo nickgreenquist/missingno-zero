@@ -9,17 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="missingno-zero.pdf"><img src="https://img.shields.io/badge/paper-PDF-b31b1b" alt="Paper (PDF)"></a>
   <img src="https://img.shields.io/badge/ladder%20%231-gens%201%20%C2%B7%202%20%C2%B7%204%20%C2%B7%206%20%C2%B7%207-ffcb05" alt="Ladder #1 in gens 1, 2, 4, 6 and 7">
 </p>
 
-<p align="center">
-  📄 <b><a href="missingno-zero.pdf">Read the paper</a></b> (PDF, 7 pages)
-</p>
-
-In September and October 2026, MissingNo.Zero, trained *tabula rasa* by self-play reinforcement learning, reached #1 on Pokémon Showdown's public random-battle ladders in five generations.
-
-To our knowledge, **no AI agent had reached #1 on these generations' random-battle ladders before, and none had reached #1 in more than one generation**.
+In September and October 2026, MissingNo.Zero, trained by self-play reinforcement learning, reached #1 on Pokémon Showdown's public random-battle ladders in five generations.
 
 <table>
   <tr>
@@ -66,8 +59,8 @@ To our knowledge, **no AI agent had reached #1 on these generations' random-batt
   </tr>
 </table>
 
-<p align="center"><sub>Each board's top 10 with our account at #1 (gen 9's at #5, its best; it did not reach #1), at the
-highest Elo we have an image of (gen 1's shows 1717, below its 1726 peak). Other players' names are blanked. GXE is Showdown's estimate of the chance to beat a random
+<p align="center"><sub>Each board's top 10 with my account at #1 (gen 9's at #5, its best; it did not reach #1), at the
+highest Elo I have an image of (gen 1's shows 1717, below its 1726 peak). Other players' names are blanked. GXE is Showdown's estimate of the chance to beat a random
 ladder player. Each #1 is backed by dated third-party captures of the ladder and by timestamps made at the time.</sub></p>
 
 ## Real games on the public ladder
@@ -103,10 +96,10 @@ ladder player. Each #1 is backed by dated third-party captures of the ladder and
 
 ## How it learns
 
-We take AlphaZero's premise ([Silver et al., 2018](https://doi.org/10.1126/science.aar6404)): one general algorithm that learns from self-play alone. Each Pokémon generation is a new game for the same algorithm; per generation we change only the rules, the input encoding, and some training and search settings.
+I take AlphaZero's premise ([Silver et al., 2018](https://doi.org/10.1126/science.aar6404)): one general algorithm that learns from self-play alone. Each Pokémon generation is a new game for the same algorithm; per generation I change only the rules, the input encoding, and some training and search settings.
 
 - **Self-play.** Each agent learns only from games against itself and its past versions.
-- **PPO.** A small policy-and-value network (about 3M parameters), trained with proximal policy optimization ([Schulman et al., 2017](https://arxiv.org/abs/1707.06347)). Our starting recipe came from [Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888).
+- **PPO.** A small policy-and-value network (about 3M parameters), trained with proximal policy optimization ([Schulman et al., 2017](https://arxiv.org/abs/1707.06347)). My starting recipe came from [Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888).
 - **Search only at play time.** On the ladder, a short look-ahead search guided by the network's own policy and value picks each move.
 
 ### Strength against Foul Play
@@ -149,7 +142,7 @@ Every network trained from random weights.
 - **[AlphaZero](https://doi.org/10.1126/science.aar6404)** (Silver et al., 2018) mastered chess, shogi and Go with one self-play algorithm, searching during training as well as play.
 - **[Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888)** and **[Foul Play](https://pmariglia.github.io/posts/foul-play/)** (pmariglia, 2025) reported peak ranks of 8 and 3 on the gen 4 random-battle ladder.
 - **The [PokéAgent Challenge](https://arxiv.org/abs/2603.15563)** (Karten et al., 2026), a NeurIPS 2025 competition, was played in gen 1 OU and gen 9 OU on a separate server for AI agents, with no public-ladder rank.
-- **Earlier #1s.** To our knowledge, every earlier AI #1 was in gen 9, including Jaxcalibur's. None reached #1 in gens 1, 2, 4, 6 or 7, or in more than one generation.
+- **Earlier #1s.** To my knowledge, every earlier AI #1 was in gen 9, including Jaxcalibur's. None reached #1 in gens 1, 2, 4, 6 or 7, or in more than one generation.
 
 ## FAQ
 
@@ -175,16 +168,16 @@ Yes. Every account has "bot" in its name and never posed as human.
 - Gens 7 and 9: after the opt-in; only opted-in players and other bots.
 
 **How does this relate to Jaxcalibur?**<br>
-[Jaxcalibur](https://jaxcalibur.github.io/) reached #1 in gen 9 in August 2026 with self-play PPO. Our gen 1 agents were already on the ladder then, and the last one built before its write-up reached #5. The write-up showed search in training wasn't needed, so we dropped it and adopted several of its ideas.
+[Jaxcalibur](https://jaxcalibur.github.io/) reached #1 in gen 9 in August 2026 with self-play PPO. My gen 1 agents were already on the ladder then, and the last one built before its write-up reached #5. The write-up showed search in training wasn't needed, so I dropped it and adopted several of its ideas.
 
 **Will you release the code or weights?**<br>
-No. A detailed recipe would make it easy to run strong bots on Showdown that ignore its bot policy.
+Not for now. Showdown's bot policy is new, and I'd rather not make it easier to run strong bots that don't follow it.
 
 ---
 
 ## About
 
-Nick Greenquist · [nickgreenquist.com](https://nickgreenquist.com) · [GitHub](https://github.com/nickgreenquist) · [Smogon thread](https://www.smogon.com/forums/threads/missingno-zero-a-pure-self-play-reinforcement-learning-bot-that-reached-1-on-five-random-battle-ladders.3790707/) · [Blog post](https://nickgreenquist.com/blog/projects/2026/11/02/missingno-zero-self-play-pokemon-showdown/)
+Nick Greenquist · [Technical report (PDF)](missingno-zero.pdf) · [GitHub](https://github.com/nickgreenquist) · [Smogon thread](https://www.smogon.com/forums/threads/missingno-zero-a-pure-self-play-reinforcement-learning-bot-that-reached-1-on-five-random-battle-ladders.3790707/) · [Blog post](https://nickgreenquist.com/blog/projects/2026/11/02/missingno-zero-self-play-pokemon-showdown/)
 
 Built on [Pokémon Showdown](https://github.com/smogon/pokemon-showdown), [poke-env](https://github.com/hsahovic/poke-env),
 [pkmn/engine](https://github.com/pkmn/engine) and [poke-engine](https://github.com/pmariglia/poke-engine); the GIFs are
