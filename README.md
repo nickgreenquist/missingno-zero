@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/ladder%20%231-gens%201%20%C2%B7%202%20%C2%B7%204%20%C2%B7%206%20%C2%B7%207-ffcb05" alt="Ladder #1 in gens 1, 2, 4, 6 and 7">
 </p>
 
-In September and October 2026, MissingNo.Zero, trained by self-play reinforcement learning, reached #1 on Pokémon Showdown's public random-battle ladders in five generations.
+MissingNo.Zero is a Pokémon Showdown bot trained only by self-play reinforcement learning. In September and October 2026 it reached #1 on the public random-battle ladders in five generations.
 
 <table>
   <tr>
@@ -59,10 +59,6 @@ In September and October 2026, MissingNo.Zero, trained by self-play reinforcemen
   </tr>
 </table>
 
-<p align="center"><sub>Each board's top 10 with my account at #1 (gen 9's at #5, its best; it did not reach #1), at the
-highest Elo I have an image of (gen 1's shows 1717, below its 1726 peak). Other players' names are blanked. GXE is Showdown's estimate of the chance to beat a random
-ladder player. Each #1 is backed by dated third-party captures of the ladder and by timestamps made at the time.</sub></p>
-
 ## Real games on the public ladder
 
 <table>
@@ -96,7 +92,7 @@ ladder player. Each #1 is backed by dated third-party captures of the ladder and
 
 ## How it learns
 
-I take AlphaZero's premise ([Silver et al., 2018](https://doi.org/10.1126/science.aar6404)): one general algorithm that learns from self-play alone. Each Pokémon generation is a new game for the same algorithm; per generation I change only the rules, the input encoding, and some training and search settings.
+The idea comes from AlphaZero ([Silver et al., 2018](https://doi.org/10.1126/science.aar6404)): one general algorithm that learns from self-play alone. Each Pokémon generation is basically a new game for the same algorithm. The only things I change per generation are the rules, the input encoding, and a few training and search settings.
 
 - **Self-play.** Each agent learns only from games against itself and its past versions.
 - **PPO.** A small policy-and-value network (about 3M parameters), trained with proximal policy optimization ([Schulman et al., 2017](https://arxiv.org/abs/1707.06347)). My starting recipe came from [Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888).
@@ -104,7 +100,7 @@ I take AlphaZero's premise ([Silver et al., 2018](https://doi.org/10.1126/scienc
 
 ### Strength against Foul Play
 
-[Foul Play](https://github.com/pmariglia/foul-play) is an open-source search bot that won the generation-9 OU track of the NeurIPS 2025 [PokéAgent Challenge](https://arxiv.org/abs/2603.15563). Each model's win rate against it, without and with its play-time search:
+I used [Foul Play](https://github.com/pmariglia/foul-play) for my offline evals, to measure each model's strength before putting it on the ladder. It's an open-source search bot that won the generation-9 OU track of the NeurIPS 2025 [PokéAgent Challenge](https://arxiv.org/abs/2603.15563). Here's each model's win rate against it, with play-time search off and on:
 
 | Gen | Without search | With search | Battles per column |
 |---|---|---|---|
@@ -119,7 +115,7 @@ I take AlphaZero's premise ([Silver et al., 2018](https://doi.org/10.1126/scienc
 
 ### Training cost
 
-Every network trained from random weights.
+Every network was trained from scratch (random weights).
 
 | Gen | Training steps | Hardware | Time to train | Rented compute |
 |---|---|---|---|---|
@@ -132,10 +128,12 @@ Every network trained from random weights.
 
 ## How it differs from chess and Go
 
-- **Hidden information.** Chess and Go show the whole board. Here the opponent's team, moves, items and abilities stay unknown until revealed.
-- **Chance.** Chess and Go are deterministic. Here damage rolls, accuracy, critical hits and side effects make every turn random.
-- **Simultaneous moves.** Chess and Go alternate turns. Here both players choose at once, so a predictable player gets exploited.
-- **Random teams.** Chess and Go always start from the same position. Here every game starts from a new, randomly dealt matchup.
+Most people know game-playing RL from chess and Go. Pokémon random battles are a different kind of game:
+
+- **Hidden information.** You can't see the opponent's team, moves, items or abilities until they're revealed.
+- **Chance.** Damage rolls, accuracy, critical hits and side effects make every turn random.
+- **Simultaneous moves.** Both players pick at the same time, so being predictable gets punished.
+- **Random teams.** Every game starts from a new, randomly dealt matchup (chess and Go always start from the same position).
 
 ## Prior work
 
@@ -150,10 +148,10 @@ Every network trained from random weights.
 No. No replays, no imitation of any player or bot, no scripted opponents.
 
 **How long did it take?**<br>
-The project started as an idea on July 25, 2026. Gen 1, the original goal, reached #1 66 days later; all five #1s came by October 24.
+I started on July 25, 2026. Gen 1 (the original goal) reached #1 66 days later, and all five #1s came by October 24.
 
 **What did it run on?**<br>
-Gen 1 trained on one laptop. Each later generation rented one GPU for a few days to speed things up. On the ladder, the network and all of its search ran on the laptop's CPU.
+Gen 1 trained on my laptop. For each later generation I rented one GPU for a few days to speed things up. On the ladder, the network and all of its search ran on my laptop's CPU.
 
 **What did it cost?**<br>
 About $2,006 of rented GPU time for the whole project, dead ends and tests included. The [Training cost](#training-cost) table covers only each final network's run.
