@@ -5,14 +5,14 @@
 <h1 align="center">MissingNo.Zero</h1>
 
 <p align="center">
-  <b>#1 on Pokémon Showdown's global random-battle ladders in five generations.</b>
+  <b>#1 on Pokémon Showdown's global random-battle ladders in six generations.</b>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ladder%20%231-gens%201%20%C2%B7%202%20%C2%B7%204%20%C2%B7%206%20%C2%B7%207-ffcb05" alt="Ladder #1 in gens 1, 2, 4, 6 and 7">
+  <img src="https://img.shields.io/badge/ladder%20%231-gens%201%20%C2%B7%202%20%C2%B7%204%20%C2%B7%206%20%C2%B7%207%20%C2%B7%209-ffcb05" alt="Ladder #1 in gens 1, 2, 4, 6, 7 and 9">
 </p>
 
-MissingNo.Zero is a Pokémon Showdown bot trained only by self-play reinforcement learning. In September and October 2026 it reached #1 on the public random-battle ladders in five generations.
+MissingNo.Zero is a Pokémon Showdown bot trained only by self-play reinforcement learning. Between September and November 2026 it reached #1 on the public random-battle ladders in six generations.
 
 <table>
   <tr>
@@ -50,12 +50,12 @@ MissingNo.Zero is a Pokémon Showdown bot trained only by self-play reinforcemen
   <tr>
     <td width="50%"><img src="media/board_gen7.png" width="100%"
          alt="The top 10 of Showdown's gen7randombattle top-500 board at its peak, 3:43 pm EDT on 2026-10-24, as the Wayback Machine captured it: MissingNo.ZeroBot at #1 with Elo 1900, GXE 89.3%, Glicko-1 1900 ± 25; other players' names blanked"></td>
-    <td width="50%"><img src="media/board_gen9.png" width="100%"
-         alt="The top 10 of Showdown's gen9randombattle top-500 board at its peak, 3:26 am EDT on 2026-10-25, as the Wayback Machine captured it: MissingNo.ZeroBot at #5 with Elo 2453, GXE 93.4%, Glicko-1 1999 ± 25; other players' names blanked"></td>
+    <td width="50%"><img src="media/board_gen9_rank1.png" width="100%"
+         alt="The top 10 of Showdown's gen9randombattle top-500 board at 10:50 am EST on 2026-11-07, from my phone: MissingNo.ZeroBot at #1 with Elo 2421, GXE 93.5%, Glicko-1 2004 ± 25; other players' names blanked"></td>
   </tr>
   <tr>
     <td align="center"><b>#1</b> on 2026-10-24 · peak Elo 1900 · <a href="https://web.archive.org/web/20261024193431/https://pokemonshowdown.com/ladder/gen7randombattle?snap=1792870430">archived at #1</a></td>
-    <td align="center"><b>Top 10</b> · best <b>#5</b> on 2026-10-25 · peak Elo 2453 · <a href="https://web.archive.org/web/20261025072637/https://pokemonshowdown.com/ladder/gen9randombattle?snap=1792913158">archived at #5</a></td>
+    <td align="center"><b>#1</b> on 2026-11-07 · Elo 2421 at #1 · my screenshot (no archive capture at #1)</td>
   </tr>
 </table>
 
@@ -96,7 +96,7 @@ The idea comes from AlphaZero ([Silver et al., 2018](https://doi.org/10.1126/sci
 
 - **Self-play.** Each agent learns only from games against itself and its past versions.
 - **PPO.** A small policy-and-value network (about 3M parameters), trained with proximal policy optimization ([Schulman et al., 2017](https://arxiv.org/abs/1707.06347)). My starting recipe came from [Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888).
-- **Search only at play time.** On the ladder, a short look-ahead search guided by the network's own policy and value picks each move.
+- **Search only at play time.** On the ladder, a short look-ahead search guided by the network's own policy and value picks each move. Gen 9's #1 seat also carried a hand-written loop breaker against repeated switching; it never triggered.
 
 ### Strength against Foul Play
 
@@ -109,9 +109,9 @@ I used [Foul Play](https://github.com/pmariglia/foul-play) for my offline evals,
 | 4 | 61.6% ± 2.2 | 67.5% ± 2.0 | 2,000 |
 | 6 | 66.4% ± 5.8 | 68.4% ± 5.7 | 256 |
 | 7 | 66.8% ± 5.8 | 71.9% ± 5.5 | 256 |
-| 9 | 64.5% ± 5.8 | 66.8% ± 5.8 | 256 |
+| 9 | 66.7% ± 1.7 | not measured | 3,000 |
 
-<sub>± is half the width of the 95% Wilson interval. Compare within a row only: Foul Play's search budget is fixed per generation. For gens 2, 4 and 6 these games used a smaller search than the ladder did.</sub>
+<sub>± is half the width of the 95% Wilson interval. Compare within a row only: Foul Play's search budget is fixed per generation. For gens 2, 4 and 6 these games used a smaller search than the ladder did. Gen 9's row is its #1 model; its search column was not measured.</sub>
 
 ### Training cost
 
@@ -124,7 +124,7 @@ Every network was trained from scratch (random weights).
 | 4 | 700M | rented GPU | about 6 days | about $230 |
 | 6 | 600M | rented GPU | about 4 days | about $170 |
 | 7 | 600M | rented GPU | about 4 days | about $220 |
-| 9 | 800M | rented GPU | about 8 days | about $280 |
+| 9 | 1.8B (800M, then 1B more) | rented GPU | about 9 days | about $350 |
 
 ## How it differs from chess and Go
 
@@ -148,13 +148,13 @@ Most people know game-playing RL from chess and Go. Pokémon random battles are 
 No. No replays, no imitation of any player or bot, no scripted opponents.
 
 **How long did it take?**<br>
-I started on July 25, 2026. Gen 1 (the original goal) reached #1 66 days later, and all five #1s came by October 24.
+I started on July 25, 2026. Gen 1 (the original goal) reached #1 66 days later, five #1s came by October 24, and gen 9's on November 7.
 
 **What did it run on?**<br>
 Gen 1 trained on my laptop. For each later generation I rented one GPU for a few days to speed things up. On the ladder, the network and all of its search ran on my laptop's CPU.
 
 **What did it cost?**<br>
-About $2,006 of rented GPU time for the whole project, dead ends and tests included. The [Training cost](#training-cost) table covers only each final network's run.
+About $2,120 of rented GPU time for the whole project through November 7, 2026, dead ends and tests included. The [Training cost](#training-cost) table covers only each final network's run.
 
 **How was it benchmarked before laddering?**<br>
 Against Foul Play, at a fixed search budget (see [Strength against Foul Play](#strength-against-foul-play)).
