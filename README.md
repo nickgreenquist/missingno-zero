@@ -130,10 +130,10 @@ Every network was trained from scratch (random weights).
 
 After the campaign I spent a few days speeding up the training pipeline. The learning algorithm didn't change.
 
-| | Before | After |
+| | Games per hour | Cost per million games |
 |---|---|---|
-| Games per hour | about 170,000 | about 630,000 |
-| Cost per million games | about $10 | about $2 |
+| Before | about 170,000 | about $10 |
+| After | about 630,000 | about $2 |
 
 Before is the average of the runs above. After is gen 9 on one rented GPU, with a network three times as large as the one that reached #1. At these rates, a run the size of gen 9's #1 (about 50M games) now costs about $100 and takes about 3 days.
 
