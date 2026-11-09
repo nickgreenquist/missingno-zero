@@ -125,7 +125,6 @@ Every network was trained from scratch (random weights).
 | 6 | about 16.3M | rented GPU | about 4 days | about 170,000 | about $170 | about $10 |
 | 7 | about 16.4M | rented GPU | about 4 days | about 170,000 | about $220 | about $13 |
 | 9 | about 49.5M (22.6M, then 26.9M more) | rented GPU | about 9 days | about 230,000 | about $350 | about $7 |
-| Total | about 112M | | about 28 days | about 170,000 | about $1,130 | about $10 |
 
 ### Post-optimization training cost
 
@@ -136,7 +135,7 @@ After the campaign I spent a few days speeding up the training pipeline. The lea
 | Games per hour | about 170,000 | about 630,000 |
 | Cost per million games | about $10 | about $2 |
 
-Before is the overall rate from the table above. After is gen 9 on one rented GPU, with a network three times as large as the one that reached #1. At these rates, a run the size of gen 9's #1 (about 50M games) now costs about $100 and takes about 3 days.
+Before is the average of the runs above. After is gen 9 on one rented GPU, with a network three times as large as the one that reached #1. At these rates, a run the size of gen 9's #1 (about 50M games) now costs about $100 and takes about 3 days.
 
 ## How it differs from chess and Go
 
