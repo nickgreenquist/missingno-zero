@@ -133,10 +133,11 @@ After the campaign I spent a few days speeding up the training pipeline. The lea
 | | Games per hour | Cost per million games |
 |---|---|---|
 | Before | about 120,000 | about $12 |
-| After, same network | about 740,000 | about $1.80 |
-| After, network three times as large | about 630,000 | about $2 |
+| After, same network, one GPU | about 740,000 (6x faster) | about $1.80 (7x cheaper) |
+| After, same network, two GPUs | about 1,060,000 (9x faster) | about $2.40 (5x cheaper) |
+| After, network three times as large, one GPU | about 630,000 (5x faster) | about $2 (6x cheaper) |
 
-Before is gen 9's training before the optimizations; both After rows are gen 9 on one rented GPU (on two GPUs the same network plays about 1,060,000 games an hour). At these rates, a run the size of gen 9's #1 (about 50M games) now costs about $90 and takes about 3 days.
+Before is gen 9's training before the optimizations; every After row is gen 9 on rented GPUs. At these rates, a run the size of gen 9's #1 (about 50M games) now costs about $90 and takes about 3 days.
 
 ## How it differs from chess and Go
 
