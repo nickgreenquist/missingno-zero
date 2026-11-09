@@ -117,26 +117,26 @@ I used [Foul Play](https://github.com/pmariglia/foul-play) for my offline evals,
 
 Every network was trained from scratch (random weights).
 
-| Gen | Self-play games | Hardware | Time to train | Rented compute |
-|---|---|---|---|---|
-| 1 | about 2.6M | laptop (Apple M4 Pro) | about 40 hours | none |
-| 2 | about 9.1M | rented GPU | about 3 days | about $160 |
-| 4 | about 17.8M | rented GPU | about 6 days | about $230 |
-| 6 | about 16.3M | rented GPU | about 4 days | about $170 |
-| 7 | about 16.4M | rented GPU | about 4 days | about $220 |
-| 9 | about 49.5M (22.6M, then 26.9M more) | rented GPU | about 9 days | about $350 |
-| Total | about 112M | | about 28 days | about $1,130 |
+| Gen | Self-play games | Hardware | Time to train | Games per hour | Rented compute | Cost per million games |
+|---|---|---|---|---|---|---|
+| 1 | about 2.6M | laptop (Apple M4 Pro) | about 40 hours | about 65,000 | none | none |
+| 2 | about 9.1M | rented GPU | about 3 days | about 125,000 | about $160 | about $18 |
+| 4 | about 17.8M | rented GPU | about 6 days | about 125,000 | about $230 | about $13 |
+| 6 | about 16.3M | rented GPU | about 4 days | about 170,000 | about $170 | about $10 |
+| 7 | about 16.4M | rented GPU | about 4 days | about 170,000 | about $220 | about $13 |
+| 9 | about 49.5M (22.6M, then 26.9M more) | rented GPU | about 9 days | about 230,000 | about $350 | about $7 |
+| Total | about 112M | | about 28 days | about 170,000 | about $1,130 | about $10 |
 
 ### Post-optimization training cost
 
-After the campaign I spent a few days speeding up the training pipeline. The learning algorithm didn't change. For gen 9, on one rented GPU:
+After the campaign I spent a few days speeding up the training pipeline. The learning algorithm didn't change.
 
 | | Before | After |
 |---|---|---|
-| Games per hour | about 120,000 | about 630,000 |
-| Cost per million games | about $12 | about $2 |
+| Games per hour | about 170,000 | about 630,000 |
+| Cost per million games | about $10 | about $2 |
 
-At these rates, a run the size of gen 9's #1 (about 50M games) now costs about $100 and takes about 3 days. The After column is for a network three times as large as the one that reached #1.
+Before is the overall rate from the table above. After is gen 9 on one rented GPU, with a network three times as large as the one that reached #1. At these rates, a run the size of gen 9's #1 (about 50M games) now costs about $100 and takes about 3 days.
 
 ## How it differs from chess and Go
 
