@@ -124,7 +124,19 @@ Every network was trained from scratch (random weights).
 | 4 | 700M | rented GPU | about 6 days | about $230 |
 | 6 | 600M | rented GPU | about 4 days | about $170 |
 | 7 | 600M | rented GPU | about 4 days | about $220 |
-| 9 | 1.8B (800M, then 1B more) | rented GPU | about 9 days | about $350 |
+| 9 | 800M (then 1B more, [below](#post-optimization-training-cost)) | rented GPU | about 8 days | about $280 |
+
+### Post-optimization training cost
+
+After the campaign I spent a few days profiling the data collector and the learner and fixing what that turned up. The learning algorithm didn't change. For gen 9:
+
+| | Before | After |
+|---|---|---|
+| Training speed | about 900 steps a second | about 6,300 a second on one GPU, about 10,900 on two |
+| Cost per 100M steps | about $35 | about $7 |
+| Time per 100M steps | about a day | about 2.5 to 4.5 hours |
+
+Gen 9's #1 network trained its last 1B steps on the faster setup, in about 27 hours for about $70. Its first 800M had taken about 8 days and $280. A network three times as large now trains for about $5.50 per 100M steps on a single rented GPU.
 
 ## How it differs from chess and Go
 
@@ -154,7 +166,7 @@ I started on July 25, 2026. Gen 1 (the original goal) reached #1 66 days later, 
 Gen 1 trained on my laptop. For each later generation I rented one GPU for a few days to speed things up. On the ladder, the network and all of its search ran on my laptop's CPU.
 
 **What did it cost?**<br>
-About $2,120 of rented GPU time for the whole project through November 7, 2026, dead ends and tests included. The [Training cost](#training-cost) table covers only each final network's run.
+About $2,100 of rented GPU time through gen 9's #1 (November 7, 2026), dead ends and tests included, nearly all of it before the [optimizations](#post-optimization-training-cost); training now costs about a fifth as much per step. The [Training cost](#training-cost) table covers only each final network's run.
 
 **How was it benchmarked before laddering?**<br>
 Against Foul Play, at a fixed search budget (see [Strength against Foul Play](#strength-against-foul-play)).
