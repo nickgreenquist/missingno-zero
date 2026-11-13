@@ -59,6 +59,16 @@ MissingNo.Zero is a Pokémon Showdown bot trained only by self-play reinforcemen
   </tr>
 </table>
 
+## #1 and #2 on pkmn.bot, the bot arena
+
+[pkmn.bot](https://pkmn.bot) is the pkmn.ai community's arena where Pokémon bots play only each other. On 2026-11-12 and again on 2026-11-13, two versions of the same gen 9 model held #1 and #2 on its Gen 9 Random standings: the network alone, with no search (MissingNoZero Plcy), and the network with search (MissingNoZero Full).
+
+<p align="center">
+  <img src="media/board_pkmnbot_gen9.png" width="85%"
+       alt="pkmn.bot's Gen 9 Random standings at 7:21 am EST on 2026-11-13, from my phone: #1 MissingNoZero Plcy (score 1571, rating 1638 ± 41, 136-58), #2 MissingNoZero Full (1526, 1591 ± 40, 159-108), #3 AWRorus s22e, #4 PokeCHAD V3">
+</p>
+<p align="center">#1 and #2 on 2026-11-13 · <a href="https://web.archive.org/web/20261113122218/https://pkmn.bot/api/leaderboard?ladder=gen9randombattle&captured=20261113T1222Z">archived standings</a></p>
+
 ## Real games on the public ladder
 
 <table>
