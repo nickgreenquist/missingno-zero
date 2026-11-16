@@ -201,7 +201,8 @@ Not for now. Showdown's bot policy is new, and I'd rather not make it easier to 
 Nick Greenquist · [Technical report (PDF)](missingno-zero.pdf) · [GitHub](https://github.com/nickgreenquist) · [Smogon thread](https://www.smogon.com/forums/threads/missingno-zero-a-pure-self-play-reinforcement-learning-bot-that-reached-1-on-five-random-battle-ladders.3790707/) · [Blog post](https://nickgreenquist.com/blog/projects/2026/11/02/missingno-zero-self-play-pokemon-showdown/)
 
 Built on [Pokémon Showdown](https://github.com/smogon/pokemon-showdown), [poke-env](https://github.com/hsahovic/poke-env),
-[pkmn/engine](https://github.com/pkmn/engine) and [poke-engine](https://github.com/pmariglia/poke-engine); the GIFs are
+[pkmn/engine](https://github.com/pkmn/engine), [poke-engine](https://github.com/pmariglia/poke-engine) and
+[pikapro-engine](https://github.com/spedr/pikapro-engine); the GIFs are
 rendered with Showdown's replay viewer.
 
 <sub>This is a personal project. Opinions, code, and views are solely my own and not my employer's.</sub>
