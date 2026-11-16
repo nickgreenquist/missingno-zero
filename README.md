@@ -96,7 +96,7 @@ The idea comes from AlphaZero ([Silver et al., 2018](https://doi.org/10.1126/sci
 
 - **Self-play.** Each agent learns only from games against itself and its past versions.
 - **PPO.** A small policy-and-value network (about 3M parameters), trained with proximal policy optimization ([Schulman et al., 2017](https://arxiv.org/abs/1707.06347)). My starting recipe came from [Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888).
-- **Search only at play time.** On the ladder, a short look-ahead search guided by the network's own policy and value picks each move. Gen 9's #1 seat also carried a hand-written loop breaker against repeated switching; it never triggered.
+- **Search only at play time.** On the ladder, a short look-ahead search guided by the network's own policy and value picks each move.
 
 ### Strength against Foul Play
 
