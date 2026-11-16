@@ -153,7 +153,7 @@ Most people know game-playing RL from chess and Go. Pokémon random battles are 
 - **[AlphaZero](https://doi.org/10.1126/science.aar6404)** (Silver et al., 2018) mastered chess, shogi and Go with one self-play algorithm, searching during training as well as play.
 - **[Wang (2024)](https://dspace.mit.edu/handle/1721.1/153888)** and **[Foul Play](https://pmariglia.github.io/posts/foul-play/)** (pmariglia, 2025) reported peak ranks of 8 and 3 on the gen 4 random-battle ladder.
 - **The [PokéAgent Challenge](https://arxiv.org/abs/2603.15563)** (Karten et al., 2026), a NeurIPS 2025 competition, was played in gen 1 OU and gen 9 OU on a separate server for AI agents, with no public-ladder rank.
-- **Earlier #1s.** To my knowledge, every earlier AI #1 was in gen 9, including Jaxcalibur's. None reached #1 in gens 1, 2, 4, 6 or 7, or in more than one generation.
+- **Earlier #1s.** To my knowledge, every earlier AI #1 was in gen 9, including Jaxcalibur's ([write-up](https://jaxcalibur.github.io/), [Smogon thread](https://www.smogon.com/forums/threads/jaxcalibur-a-gen-9-randbats-bot-that-reached-1-on-the-ladder.3787537/)). None reached #1 in gens 1, 2, 4, 6 or 7, or in more than one generation.
 
 ## FAQ
 
